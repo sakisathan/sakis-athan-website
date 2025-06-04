@@ -5,8 +5,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-// Load the knowledge base
-const knowledgeBase = require('../knowledge-base/qa_database.json');
+// Load the knowledge base - FIXED PATH
+const knowledgeBase = require('./knowledge-base/qa_database.json');
 
 exports.handler = async (event, context) => {
   // Handle CORS
@@ -142,4 +142,5 @@ Always respond in plain text without any formatting, asterisks, or markdown. Kee
     };
   }
 };
+
 
