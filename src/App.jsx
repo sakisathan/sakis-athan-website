@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Input } from '@/components/ui/input.jsx'
 import { Textarea } from '@/components/ui/textarea.jsx'
 import { Bot, Mail, Phone, MessageCircle, Send, X, Volume2, VolumeX } from 'lucide-react'
-import profileImage from './assets/sakis-profile.png'
+import profileVideo from './assets/smiling_video.mp4'
 
 import largeRobot from './assets/large-robot.gif'
 import './App.css'
@@ -189,10 +189,14 @@ function App() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-30 scale-110"></div>
                 <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/20">
-                  <img 
-                    src={profileImage} 
+                  <video 
+                    src={profileVideo} 
                     alt="Sakis Athan - AI Agent Engineer" 
                     className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                   />
                 </div>
               </div>
@@ -323,175 +327,265 @@ function App() {
             <div className="text-center space-y-8 mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold">Contact AI Agent Engineer Sakis Athan</h2>
               <p className="text-xl text-gray-300">
-                Ready to automate your business with custom AI agents? Let's discuss your AI automation project. I personally handle every development — no middlemen, no delays.
+                Ready to automate your business with custom AI agents? Let's discuss your project.
               </p>
             </div>
-            
+
             <div className="grid lg:grid-cols-2 gap-12">
               <div className="space-y-8">
-                <div className="flex items-center space-x-4">
-                  <Mail className="w-6 h-6 text-blue-400" />
-                  <span className="text-lg">aiagent@dr.com</span>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Why Choose My AI Agent Services?</h3>
+                  <ul className="space-y-3 text-gray-300">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong className="text-white">Fast Delivery:</strong> Most projects completed within 1-2 weeks</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong className="text-white">Custom Solutions:</strong> Tailored to your specific business needs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong className="text-white">Ongoing Support:</strong> Maintenance and updates included</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong className="text-white">Fair Pricing:</strong> Transparent, competitive rates</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong className="text-white">Proven Results:</strong> Real automation that saves time and money</span>
+                    </li>
+                  </ul>
                 </div>
-                
-                <Card className="bg-gray-800 border-gray-700">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4 text-white">Quick Contact</h3>
-                    <form onSubmit={handleContactSubmit} className="space-y-4">
-                      <Input 
+
+                <div className="bg-gray-800 p-6 rounded-lg">
+                  <h4 className="text-lg font-bold mb-2">Direct Contact</h4>
+                  <p className="text-gray-300 mb-4">
+                    For immediate consultation or urgent projects, reach out directly:
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center">
+                      <Mail className="w-5 h-5 text-blue-400 mr-3" />
+                      <a href="mailto:aiagent@dr.com" className="text-blue-400 hover:text-blue-300 font-medium">
+                        aiagent@dr.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Card className="bg-gray-800 border-gray-700">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-6">Start Your AI Project</h3>
+                  <form onSubmit={handleContactSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                        Your Name
+                      </label>
+                      <Input
+                        id="name"
                         name="name"
-                        placeholder="Your Name" 
-                        required 
-                        className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                        type="text"
+                        required
+                        className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                        placeholder="Enter your full name"
                       />
-                      <Input 
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                        Email Address
+                      </label>
+                      <Input
+                        id="email"
                         name="email"
-                        type="email" 
-                        placeholder="Your Email" 
-                        required 
-                        className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                        type="email"
+                        required
+                        className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                        placeholder="your.email@example.com"
                       />
-                      <Textarea 
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                        Project Description
+                      </label>
+                      <Textarea
+                        id="message"
                         name="message"
-                        placeholder="Tell me about your AI project..." 
-                        required 
-                        rows={4}
-                        className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                        required
+                        rows={5}
+                        className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                        placeholder="Describe your AI automation needs, current challenges, and desired outcomes..."
                       />
-                      <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                        <Send className="w-4 h-4 mr-2" />
-                        Send Message
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
-              
-              <div className="space-y-6">
-                <h3 className="text-2xl font-semibold">Why Work With Me?</h3>
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
-                    <span>100% hands-on development - I personally code every solution</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
-                    <span>Fast delivery with fair pricing</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
-                    <span>Custom solutions tailored to your specific needs</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
-                    <span>Direct communication - no middlemen or delays</span>
-                  </li>
-                </ul>
-              </div>
+                    </div>
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    >
+                      <Send className="w-5 h-5 mr-2" />
+                      Send Project Details
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-8">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-400">
-            © 2025 Sakis Athan — AI Agent Engineer
-          </p>
+      <footer className="bg-black text-white py-12">
+        <div className="container mx-auto px-6">
+          <div className="text-center space-y-4">
+            <h3 className="text-2xl font-bold">Sakis Athan - AI Agent Engineer</h3>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Building intelligent automation solutions that transform how businesses operate. 
+              Custom AI agents designed for real-world impact.
+            </p>
+            <div className="flex justify-center space-x-6">
+              <a href="mailto:aiagent@dr.com" className="text-gray-400 hover:text-white transition-colors">
+                <Mail className="w-6 h-6" />
+              </a>
+            </div>
+            <div className="border-t border-gray-800 pt-8 mt-8">
+              <p className="text-gray-400 text-sm">
+                © 2024 Sakis Athan. All rights reserved. | AI Agent Engineer & Automation Specialist
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
 
-      {/* Floating AI Assistant */}
+      {/* Floating Chat Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        {!chatOpen && (
-          <div
-            onClick={() => setChatOpen(true)}
-            className="cursor-pointer hover:scale-110 transition-all duration-300 animate-bounce"
-          >
-            <img src={largeRobot} alt="AI Assistant" className="w-20 h-20" />
-          </div>
-        )}
-        
-        {chatOpen && (
-          <div className="w-80 h-96 bg-white rounded-lg shadow-2xl flex flex-col overflow-hidden border border-gray-200">
-            <div className="flex items-center justify-between px-4 py-3 bg-blue-600 text-white flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <img src={largeRobot} alt="AI Assistant" className="w-8 h-8" />
-                <span className="font-semibold">AI Assistant</span>
+        <Button
+          onClick={() => setChatOpen(!chatOpen)}
+          size="lg"
+          className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-16 h-16 shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+        >
+          {chatOpen ? (
+            <X className="w-8 h-8 group-hover:scale-110 transition-transform" />
+          ) : (
+            <MessageCircle className="w-8 h-8 group-hover:scale-110 transition-transform" />
+          )}
+        </Button>
+      </div>
+
+      {/* Chat Interface */}
+      {chatOpen && (
+        <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden">
+          {/* Chat Header */}
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <Bot className="w-6 h-6" />
               </div>
-              <div className="flex items-center space-x-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => {
-                    // Cancel any ongoing speech immediately when toggling
-                    if (voiceEnabled) {
-                      speechSynthesis.cancel()
-                    }
-                    setVoiceEnabled(!voiceEnabled)
-                  }}
-                  className="text-white hover:bg-blue-700 h-8 w-8 p-0 rounded"
-                  title={voiceEnabled ? "Disable voice" : "Enable voice"}
-                >
-                  {voiceEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setChatOpen(false)}
-                  className="text-white hover:bg-blue-700 h-8 w-8 p-0 rounded"
-                >
-                  <X className="w-4 h-4" />
-                </Button>
+              <div>
+                <h3 className="font-bold">AI Assistant</h3>
+                <p className="text-sm text-blue-100">Ask me about AI automation</p>
               </div>
             </div>
+            <div className="flex items-center space-x-2">
+              <Button
+                onClick={() => setVoiceEnabled(!voiceEnabled)}
+                size="sm"
+                variant="ghost"
+                className="text-white hover:bg-white/20 p-2"
+                title={voiceEnabled ? "Disable voice" : "Enable voice"}
+              >
+                {voiceEnabled ? (
+                  <Volume2 className="w-4 h-4" />
+                ) : (
+                  <VolumeX className="w-4 h-4" />
+                )}
+              </Button>
+              <Button
+                onClick={() => setChatOpen(false)}
+                size="sm"
+                variant="ghost"
+                className="text-white hover:bg-white/20 p-2"
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Chat Messages */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            {chatMessages.length === 0 && (
+              <div className="text-center text-gray-500 py-8">
+                <Bot className="w-12 h-12 mx-auto mb-4 text-gray-300" />
+                <p className="text-sm">
+                  Hi! I'm Sakis's AI assistant. Ask me about AI automation services, pricing, or any questions you have!
+                </p>
+              </div>
+            )}
             
-            <div className="flex flex-col flex-1 min-h-0">
-              <div className="flex-1 p-4 overflow-y-auto space-y-4">
-                {chatMessages.length === 0 && (
-                  <div className="text-gray-500 text-sm">
-                    Hi! I'm Sakis's AI assistant. Ask me about his services, pricing, or anything else!
-                  </div>
-                )}
-                {chatMessages.map((message, index) => (
-                  <div
-                    key={index}
-                    className={`p-3 rounded-lg text-sm ${
-                      message.role === 'user'
-                        ? 'bg-blue-600 text-white ml-8'
-                        : 'bg-gray-100 text-gray-800 mr-8'
-                    }`}
-                    dangerouslySetInnerHTML={{ __html: message.content }}
-                  />
-                ))}
-                {isLoading && (
-                  <div className="bg-gray-100 text-gray-800 mr-8 p-3 rounded-lg text-sm">
-                    Thinking...
-                  </div>
-                )}
-              </div>
-              
-              <form onSubmit={handleChatSubmit} className="p-4 border-t flex-shrink-0">
-                <div className="flex space-x-2">
-                  <Input
-                    value={chatInput}
-                    onChange={(e) => setChatInput(e.target.value)}
-                    placeholder="Ask me anything..."
-                    className="flex-1"
-                    disabled={isLoading}
-                  />
-                  <Button type="submit" size="sm" disabled={isLoading}>
-                    <MessageCircle className="w-4 h-4" />
-                  </Button>
+            {chatMessages.map((msg, index) => (
+              <div
+                key={index}
+                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                <div
+                  className={`max-w-[80%] p-3 rounded-2xl chat-message ${
+                    msg.role === 'user'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-900'
+                  }`}
+                >
+                  <p className="text-sm">{msg.content}</p>
                 </div>
-              </form>
-            </div>
+              </div>
+            ))}
+            
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="bg-gray-100 p-3 rounded-2xl">
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Chat Input */}
+          <div className="p-4 border-t border-gray-200">
+            <form onSubmit={handleChatSubmit} className="flex space-x-2">
+              <Input
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                placeholder="Ask about AI automation..."
+                className="flex-1"
+                disabled={isLoading}
+              />
+              <Button
+                type="submit"
+                size="sm"
+                disabled={isLoading || !chatInput.trim()}
+                className="bg-blue-600 hover:bg-blue-700"
+              >
+                <Send className="w-4 h-4" />
+              </Button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Large Robot Animation */}
+      <div className="fixed bottom-0 left-0 pointer-events-none z-10">
+        <img
+          src={largeRobot}
+          alt="AI Robot"
+          className="w-32 h-32 opacity-20"
+        />
       </div>
     </div>
   )
 }
 
 export default App
+
