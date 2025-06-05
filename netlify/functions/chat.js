@@ -47,110 +47,105 @@ exports.handler = async (event, context) => {
 
     console.log('Received message:', message);
 
-    // First, try to find relevant answers from knowledge base using GPT-3.5
-    let response;
-    
+    // Create a comprehensive knowledge base context for GPT-3.5
+    const knowledgeContext = knowledgeBase.qa_pairs.map((qa, index) => 
+      `Q${index + 1}: ${qa.question}\nA${index + 1}: ${qa.answer}\nCategory: ${qa.category}`
+    ).join('\n\n');
+
+    // Use GPT-3.5 to intelligently respond using the knowledge base
+    const systemPrompt = `You are Sakis Athan's AI assistant. Sakis builds custom AI agents and automation solutions.
+
+KNOWLEDGE BASE:
+${knowledgeContext}
+
+INSTRUCTIONS:
+1. You have access to comprehensive Q&A information about Sakis's services
+2. When a user asks a question, find the most relevant information from the knowledge base
+3. Provide helpful, accurate answers based on this information
+4. If the question relates to multiple Q&A pairs, combine the information intelligently
+5. If no relevant information exists in the knowledge base, provide a helpful general response about AI agents and automation
+6. Always be professional, friendly, and helpful
+7. Never mention "NO_MATCH_FOUND" or technical errors to users
+8. Remove any asterisks (*) or formatting characters from your responses
+9. Keep responses conversational and natural for voice synthesis
+
+ABOUT SAKIS:
+- Builds custom AI agents using GPT-3.5, GPT-4, Claude, and other AI models
+- Specializes in automation, chatbots, document processing, and business workflows
+- Uses Python, JavaScript, and Visual Basic
+- Offers consulting and custom development services
+- Contact: aiagent@dr.com
+
+Respond naturally and helpfully to the user's question.`;
+
     try {
-      // Use GPT-3.5 to analyze the question and find the best matching Q&A pairs
-      const analysisPrompt = `You are an AI assistant for Sakis Athan, who builds custom AI agents and automation solutions.
-
-User question: "${message}"
-
-Below are available Q&A pairs from the knowledge base:
-${knowledgeBase.qa_pairs.map((qa, index) => `${index + 1}. Q: ${qa.question}\nA: ${qa.answer}\nCategory: ${qa.category}\n`).join('\n')}
-
-Your task:
-1. Analyze the user's question carefully
-2. Find the most relevant Q&A pair(s) that answer the question
-3. If you find relevant matches, provide a comprehensive answer based on those Q&A pairs
-4. If no good matches exist, respond with "NO_MATCH_FOUND"
-5. Always be helpful and provide the most accurate information
-
-Respond with either:
-- A helpful answer based on the knowledge base
-- "NO_MATCH_FOUND" if no relevant information exists
-
-Answer:`;
-
       const completion = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: [
           {
             role: 'system',
-            content: 'You are a helpful AI assistant for Sakis Athan who builds custom AI agents. Use the provided knowledge base to answer questions accurately.'
+            content: systemPrompt
           },
           {
             role: 'user',
-            content: analysisPrompt
+            content: message
           }
         ],
-        max_tokens: 500,
+        max_tokens: 400,
         temperature: 0.7
       });
 
-      response = completion.choices[0].message.content.trim();
+      let response = completion.choices[0].message.content.trim();
       
-      // If GPT couldn't find a match in the knowledge base, provide a general helpful response
-      if (response === "NO_MATCH_FOUND") {
-        console.log('No knowledge base match found, using general OpenAI response');
-        
-        const generalCompletion = await openai.chat.completions.create({
-          model: 'gpt-3.5-turbo',
-          messages: [
-            {
-              role: 'system',
-              content: `You are an AI assistant for Sakis Athan, a developer who specializes in building custom AI agents and automation solutions. 
+      // Clean up the response for voice synthesis
+      response = response
+        .replace(/\*/g, '') // Remove asterisks
+        .replace(/\#/g, '') // Remove hash symbols
+        .replace(/\[.*?\]/g, '') // Remove bracketed references
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim();
 
-Key information about Sakis:
-- He builds custom AI agents using GPT-3.5, GPT-4, Claude, and other AI models
-- He specializes in automation, chatbots, document processing, and business workflows
-- He uses Python, JavaScript, and Visual Basic
-- He offers consulting and custom development services
-- He's based in Denmark but works with clients worldwide
-- Contact: aiagent@dr.com
+      console.log('Generated response:', response);
 
-Respond helpfully to user questions about AI agents, automation, or related services. If the question is outside your expertise, politely redirect them to contact Sakis directly.`
-            },
-            {
-              role: 'user',
-              content: message
-            }
-          ],
-          max_tokens: 300,
-          temperature: 0.7
-        });
-        
-        response = generalCompletion.choices[0].message.content;
-      } else {
-        console.log('Found knowledge base match, using enhanced response');
-      }
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ 
+          response: response,
+          timestamp: new Date().toISOString()
+        })
+      };
 
     } catch (openaiError) {
       console.error('OpenAI API error:', openaiError);
-      response = "I apologize, but I'm experiencing technical difficulties. Please contact Sakis directly at aiagent@dr.com for assistance.";
+      
+      // Fallback response without revealing technical details
+      const fallbackResponse = "I'm here to help you learn about AI agents and automation solutions. Sakis specializes in building custom AI assistants that can automate tasks, handle emails, process documents, and much more. For specific questions about your project, please contact Sakis directly at aiagent@dr.com.";
+      
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ 
+          response: fallbackResponse,
+          timestamp: new Date().toISOString()
+        })
+      };
     }
 
+  } catch (error) {
+    console.error('Error processing chat request:', error);
+    
+    // User-friendly error response
+    const errorResponse = "I apologize for the technical difficulty. Please try asking your question again, or contact Sakis directly at aiagent@dr.com for immediate assistance.";
+    
     return {
       statusCode: 200,
       headers,
       body: JSON.stringify({ 
-        response: response,
+        response: errorResponse,
         timestamp: new Date().toISOString()
-      })
-    };
-
-  } catch (error) {
-    console.error('Error processing chat request:', error);
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ 
-        error: 'Internal server error',
-        message: 'Please try again later or contact support.'
       })
     };
   }
 };
-
-
 
