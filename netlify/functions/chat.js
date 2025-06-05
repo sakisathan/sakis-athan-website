@@ -5,7 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-// Load the knowledge base - FIXED PATH
+// Load the knowledge base
 const knowledgeBase = require('./knowledge-base/qa_database.json');
 
 exports.handler = async (event, context) => {
@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
 
   try {
     const { message } = JSON.parse(event.body);
-
+    
     if (!message) {
       return {
         statusCode: 400,
@@ -45,102 +45,112 @@ exports.handler = async (event, context) => {
       };
     }
 
-    console.log(`Received message: ${message}`);
+    console.log('Received message:', message);
 
-    // Search knowledge base first
-    const lowerMessage = message.toLowerCase();
-    let bestMatch = null;
-    let bestScore = 0;
-
-    for (const qa of knowledgeBase.qa_pairs) {
-      const questionLower = qa.question.toLowerCase();
-      
-      // Simple keyword matching
-      const messageWords = lowerMessage.split(' ');
-      const questionWords = questionLower.split(' ');
-      
-      let matchCount = 0;
-      for (const word of messageWords) {
-        if (word.length > 2 && questionWords.some(qw => qw.includes(word) || word.includes(qw))) {
-          matchCount++;
-        }
-      }
-      
-      const score = matchCount / Math.max(messageWords.length, questionWords.length);
-      
-      if (score > bestScore && score > 0.3) {
-        bestScore = score;
-        bestMatch = qa;
-      }
-    }
-
+    // First, try to find relevant answers from knowledge base using GPT-3.5
     let response;
+    
+    try {
+      // Use GPT-3.5 to analyze the question and find the best matching Q&A pairs
+      const analysisPrompt = `You are an AI assistant for Sakis Athan, who builds custom AI agents and automation solutions.
 
-    if (bestMatch) {
-      console.log(`Found knowledge base match: ${bestMatch.question}`);
-      response = bestMatch.answer;
-    } else {
-      console.log('No knowledge base match found, using OpenAI');
-      
-      // Use OpenAI as fallback
+User question: "${message}"
+
+Below are available Q&A pairs from the knowledge base:
+${knowledgeBase.qa_pairs.map((qa, index) => `${index + 1}. Q: ${qa.question}\nA: ${qa.answer}\nCategory: ${qa.category}\n`).join('\n')}
+
+Your task:
+1. Analyze the user's question carefully
+2. Find the most relevant Q&A pair(s) that answer the question
+3. If you find relevant matches, provide a comprehensive answer based on those Q&A pairs
+4. If no good matches exist, respond with "NO_MATCH_FOUND"
+5. Always be helpful and provide the most accurate information
+
+Respond with either:
+- A helpful answer based on the knowledge base
+- "NO_MATCH_FOUND" if no relevant information exists
+
+Answer:`;
+
       const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
+        model: 'gpt-3.5-turbo',
         messages: [
           {
-            role: "system",
-            content: `You are Sakis Athan, an expert AI Agent Engineer. You build intelligent systems that automate business processes, optimize workflows, and assist with real tasks. You provide fast delivery, fair pricing, and 100% hands-on development.
-
-Your expertise includes:
-- Custom AI agents and chatbots
-- Business process automation
-- Workflow optimization
-- AI integration solutions
-- Vibe programming (your unique approach)
-
-Always respond in plain text without any formatting, asterisks, or markdown. Keep responses concise and professional. Your email is aiagent@dr.com for direct contact.`
+            role: 'system',
+            content: 'You are a helpful AI assistant for Sakis Athan who builds custom AI agents. Use the provided knowledge base to answer questions accurately.'
           },
           {
-            role: "user",
-            content: message
+            role: 'user',
+            content: analysisPrompt
           }
         ],
-        max_tokens: 150,
+        max_tokens: 500,
         temperature: 0.7
       });
 
-      response = completion.choices[0].message.content;
+      response = completion.choices[0].message.content.trim();
+      
+      // If GPT couldn't find a match in the knowledge base, provide a general helpful response
+      if (response === "NO_MATCH_FOUND") {
+        console.log('No knowledge base match found, using general OpenAI response');
+        
+        const generalCompletion = await openai.chat.completions.create({
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: `You are an AI assistant for Sakis Athan, a developer who specializes in building custom AI agents and automation solutions. 
+
+Key information about Sakis:
+- He builds custom AI agents using GPT-3.5, GPT-4, Claude, and other AI models
+- He specializes in automation, chatbots, document processing, and business workflows
+- He uses Python, JavaScript, and Visual Basic
+- He offers consulting and custom development services
+- He's based in Denmark but works with clients worldwide
+- Contact: aiagent@dr.com
+
+Respond helpfully to user questions about AI agents, automation, or related services. If the question is outside your expertise, politely redirect them to contact Sakis directly.`
+            },
+            {
+              role: 'user',
+              content: message
+            }
+          ],
+          max_tokens: 300,
+          temperature: 0.7
+        });
+        
+        response = generalCompletion.choices[0].message.content;
+      } else {
+        console.log('Found knowledge base match, using enhanced response');
+      }
+
+    } catch (openaiError) {
+      console.error('OpenAI API error:', openaiError);
+      response = "I apologize, but I'm experiencing technical difficulties. Please contact Sakis directly at aiagent@dr.com for assistance.";
     }
-
-    // Clean up response - remove any formatting
-    response = response
-      .replace(/\*\*/g, '')  // Remove bold asterisks
-      .replace(/\*/g, '')    // Remove single asterisks
-      .replace(/###/g, '')   // Remove headers
-      .replace(/##/g, '')    // Remove headers
-      .replace(/#/g, '')     // Remove headers
-      .replace(/__/g, '')    // Remove underlines
-      .replace(/_/g, '')     // Remove underlines
-      .trim();
-
-    console.log(`Sending response: ${response}`);
 
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ response })
+      body: JSON.stringify({ 
+        response: response,
+        timestamp: new Date().toISOString()
+      })
     };
 
   } catch (error) {
     console.error('Error processing chat request:', error);
-    
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({ 
-        response: 'I apologize, but I am experiencing technical difficulties. Please contact Sakis directly at aiagent@dr.com for assistance.'
+        error: 'Internal server error',
+        message: 'Please try again later or contact support.'
       })
     };
   }
 };
+
 
 
