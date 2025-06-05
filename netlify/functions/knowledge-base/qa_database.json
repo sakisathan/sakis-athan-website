@@ -1,45 +1,1002 @@
 {
-  "qa_pairs": [
-    {
-      "question": "What services do you offer?",
-      "answer": "I offer comprehensive AI Agent Engineering services including custom AI chatbot development, automation solutions, workflow optimization, and AI integration for businesses. I specialize in creating intelligent systems that streamline operations and enhance customer experiences."
-    },
-    {
-      "question": "What is your workflow process?",
-      "answer": "My workflow process consists of five key phases: Initial Consultation where we discuss your needs and goals, Requirements Analysis to understand your specific challenges, Solution Design where I create a tailored AI strategy, Implementation and Development of your custom AI solutions, and finally Testing and Deployment with ongoing support."
-    },
-    {
-      "question": "How much do your services cost?",
-      "answer": "My pricing varies based on project complexity and requirements. I offer flexible pricing models including project-based rates, hourly consultation, and ongoing maintenance packages. Contact me directly at aiagent@dr.com for a personalized quote based on your specific needs."
-    },
-    {
-      "question": "What technologies do you work with?",
-      "answer": "I work with cutting-edge AI technologies including OpenAI GPT models, machine learning frameworks, natural language processing, automation tools, and various programming languages. I specialize in creating scalable solutions using modern web technologies and cloud platforms."
-    },
-    {
-      "question": "How long does a typical project take?",
-      "answer": "Project timelines vary depending on complexity. Simple AI chatbot implementations typically take 1-2 weeks, while comprehensive automation solutions may require 4-8 weeks. I provide detailed timelines during the initial consultation phase."
-    },
-    {
-      "question": "Do you provide ongoing support?",
-      "answer": "Yes, I provide comprehensive ongoing support including system monitoring, updates, troubleshooting, and feature enhancements. I offer various support packages to ensure your AI solutions continue to perform optimally."
-    },
-    {
-      "question": "Can you integrate with existing systems?",
-      "answer": "Absolutely! I specialize in seamless integration with existing business systems, databases, CRM platforms, and workflows. My solutions are designed to enhance your current operations without disrupting established processes."
-    },
-    {
-      "question": "What makes your AI solutions unique?",
-      "answer": "My AI solutions are tailored specifically to your business needs, focusing on practical implementation and measurable results. I combine technical expertise with business understanding to create solutions that truly add value to your operations."
-    },
-    {
-      "question": "How do I get started?",
-      "answer": "Getting started is simple! Contact me directly at aiagent@dr.com to schedule a free initial consultation. We'll discuss your needs, explore potential solutions, and create a roadmap for implementing AI in your business."
-    },
-    {
-      "question": "What industries do you work with?",
-      "answer": "I work with businesses across various industries including e-commerce, healthcare, finance, education, real estate, and professional services. My AI solutions are adaptable to any industry that can benefit from automation and intelligent systems."
-    }
-  ]
-}
+    "question": "What do you do?",
+    "answer": "I build AI agents that automate tasks and save you time.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "What's an AI agent?",
+    "answer": "It's a smart program that can think, act, and respond like a virtual assistant.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can you build a custom AI agent for my business?",
+    "answer": "Yes. I create custom bots based on your exact needs.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can your bots handle emails?",
+    "answer": "Yes. They can read, sort, and even write replies.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Do you build chatbots for websites?",
+    "answer": "Absolutely. I can make bots that answer FAQs or support customers 24/7.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can your AI help with reports or documents?",
+    "answer": "Yes. I build agents that analyze and summarize files like PDFs or Excel.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Do you automate repetitive work?",
+    "answer": "Yes, automation is one of my main services.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can you create tools that talk back (voice)?",
+    "answer": "Yes, I use text-to-speech to make bots that speak out loud.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Do your bots work with my existing systems?",
+    "answer": "Yes. I can connect AI to tools you already use via API or scripting.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can your AI work offline?",
+    "answer": "Some parts can, but most advanced features need internet access.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "What's the difference between a chatbot and an AI agent?",
+    "answer": "A chatbot chats. An AI agent can think, plan, and do complex tasks.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can your AI help me organize my calendar?",
+    "answer": "Yes. I can build an assistant to manage appointments and reminders.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can your agent help with customer service?",
+    "answer": "Yes. It can handle chats, email, and even simple ticketing tasks.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can you make tools for internal company use?",
+    "answer": "Yes, I often build AI tools for private, internal systems.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "Can your AI work in different languages?",
+    "answer": "Yes. I can build multilingual bots using GPT or Claude.",
+    "category": "Services You Offer"
+  },
+  {
+    "question": "What programming languages do you use?",
+    "answer": "Visual Basic, Python, and JavaScript are my main tools.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "Do you use GPT?",
+    "answer": "Yes. I work with GPT-3.5, GPT-4, and OpenAI's API.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "What is Claude?",
+    "answer": "Claude is an AI model like GPT, made by Anthropic. It's great for reasoning.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "What is Manus AI?",
+    "answer": "Manus is a no-code AI builder I sometimes use to prototype systems.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "What is Perplexity AI?",
+    "answer": "It's an AI search assistant that answers questions with source links.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "Can you connect to APIs?",
+    "answer": "Yes, I build AI agents that talk to APIs and services.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "Do you build browser-based tools?",
+    "answer": "Yes. I can make AI run directly in a browser using JavaScript.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "Do you code everything yourself?",
+    "answer": "Yes, I personally design and build every solution I deliver.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "Do you use any AI libraries or frameworks?",
+    "answer": "Yes. LangChain, AutoGen, and Pinecone when needed.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "Do you use GitHub?",
+    "answer": "Yes. I use GitHub for version control and project delivery.",
+    "category": "Tools & Tech Stack"
+  },
+  {
+    "question": "How much does a basic AI agent cost?",
+    "answer": "It depends, but simple bots start from around €150.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "What's your hourly rate?",
+    "answer": "I usually work with fixed prices, but hourly starts around €35–€50.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "Do you offer free consultations?",
+    "answer": "Yes. Contact me to discuss your project for free.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "Do I pay upfront?",
+    "answer": "Usually 50% upfront, 50% on delivery.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "Can you work with my budget?",
+    "answer": "Yes. I always try to offer solutions that fit your budget.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "How long does a small project take?",
+    "answer": "2–5 days for basic tasks or chatbots.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "How long does a complex agent take?",
+    "answer": "1–4 weeks depending on features.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "Do you write contracts?",
+    "answer": "Yes, I can send a clear project agreement or NDA.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "What if I need changes later?",
+    "answer": "Small edits are usually included. Bigger changes can be added anytime.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "Do you offer payment plans?",
+    "answer": "Yes, for larger projects I can split payments into milestones.",
+    "category": "Pricing & Delivery"
+  },
+  {
+    "question": "Will I own the code after the project?",
+    "answer": "Yes. You get full rights to use and modify it.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "Is my project private?",
+    "answer": "Yes. I treat every project as confidential.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "Can we sign an NDA?",
+    "answer": "Yes. I'm happy to sign an NDA if needed.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "Do you offer support after delivery?",
+    "answer": "Yes. I include basic support and offer maintenance packages.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "What if something breaks?",
+    "answer": "I'll fix any bugs or issues quickly after delivery.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "Can you host the AI for me?",
+    "answer": "Yes, or I can help you host it on your own systems.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "Can I update the bot myself?",
+    "answer": "Yes, if you want. Or I can maintain it for you.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "What data does the AI use?",
+    "answer": "It only uses what you give it. I don't store anything long-term.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "Is the AI GDPR-compliant?",
+    "answer": "Yes. I follow privacy rules and use trusted tools.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "Will my information be shared with anyone?",
+    "answer": "No. I work independently and keep everything private.",
+    "category": "Support, Privacy & Ownership"
+  },
+  {
+    "question": "How do I contact you?",
+    "answer": "Email me anytime at aiagent@dr.com",
+    "category": "Contact & Personal Info"
+  },
+  {
+    "question": "Where are you based?",
+    "answer": "I live in Denmark, but I work with clients worldwide.",
+    "category": "Contact & Personal Info"
+  },
+  {
+    "question": "Are you Greek?",
+    "answer": "Yes, I'm Greek, originally from Greece.",
+    "category": "Contact & Personal Info"
+  },
+  {
+    "question": "Are you available now?",
+    "answer": "Yes, I usually have open slots. Just send a message.",
+    "category": "Contact & Personal Info"
+  },
+  {
+    "question": "Do you work on weekends?",
+    "answer": "Sometimes, yes. For urgent projects, I'm flexible.",
+    "category": "Contact & Personal Info"
+  },
+  {
+    "question": "What is GPT?",
+    "answer": "GPT is a powerful language AI that can understand and generate text.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "What is Claude?",
+    "answer": "Claude is an advanced AI like GPT, known for careful and smart reasoning.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "What is Manus?",
+    "answer": "Manus is an AI platform that helps build agents with low-code tools.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "What is Perplexity AI?",
+    "answer": "It's a research AI that answers questions with real sources.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Is your AI as smart as ChatGPT?",
+    "answer": "Yes. I use the same OpenAI GPT-3.5/4 engines under the hood.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can your bots remember past messages?",
+    "answer": "Yes, I can add memory, depending on the use case.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can I train the bot with my own data?",
+    "answer": "Yes, I can fine-tune the AI using your documents or database.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can your AI search the web?",
+    "answer": "Some bots can use web tools like Perplexity to find live info.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can your AI read PDFs or Excel files?",
+    "answer": "Yes. I can build bots that understand and summarize them.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can your bots translate text?",
+    "answer": "Yes. They can translate between many languages automatically.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can you make a voice-controlled bot?",
+    "answer": "Yes. I use Web Speech API so you can talk to the AI.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can the bot understand images?",
+    "answer": "I mostly build text-based bots, but image support is possible.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can the AI run 24/7?",
+    "answer": "Yes. I can set it up on servers so it's always online.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can the AI update itself?",
+    "answer": "I can build self-updating logic for some use cases.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can you make a bot that replies on WhatsApp?",
+    "answer": "Yes, but WhatsApp API setup is required.",
+    "category": "Understanding AI & Capabilities"
+  },
+  {
+    "question": "Can I change the bot's name?",
+    "answer": "Yes. You can name it anything you want.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I choose how the bot sounds?",
+    "answer": "Yes. I can give it different voices using speech tools.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I write my own prompts?",
+    "answer": "Yes, I can help you set custom prompts for your needs.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can the bot greet users by name?",
+    "answer": "Yes, if the input includes the user's name.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I control how the bot answers?",
+    "answer": "Yes. I can make it formal, friendly, funny—whatever tone you like.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I use emojis in replies?",
+    "answer": "Sure. I can style the bot's replies with emojis or markdown.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I make the bot give links or buttons?",
+    "answer": "Yes, I can add links, buttons, or rich responses.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can the bot log user questions?",
+    "answer": "Yes, with permission, I can store Q&A logs.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can the bot send email notifications?",
+    "answer": "Yes. I can connect it to send alerts or summaries.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I give it access to my calendar?",
+    "answer": "Yes. With permission, the bot can read/write events.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can it work on mobile devices?",
+    "answer": "Yes, everything I build is mobile-compatible.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I embed it on my website?",
+    "answer": "Yes, I'll give you code or a widget you can paste.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can I restrict who can use it?",
+    "answer": "Yes. I can limit access by IP, password, or domain.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can it talk to other bots or systems?",
+    "answer": "Yes. I can build multi-agent workflows.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "Can the bot connect to Google Sheets?",
+    "answer": "Yes. I can make the AI read/write Google Sheets data.",
+    "category": "Features & Customization"
+  },
+  {
+    "question": "What is vibe programming?",
+    "answer": "It's my creative style—fast, intuitive coding based on real-world feel.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "Do you use AI tools every day?",
+    "answer": "Yes. I live and work with AI daily.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "Are you more of a coder or engineer?",
+    "answer": "Both. I design and code each solution myself.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "Do you outsource any work?",
+    "answer": "Never. I personally handle every project.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "Why do people hire you?",
+    "answer": "For speed, custom work, and clear communication.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "How fast can you start a project?",
+    "answer": "Usually within 24 hours.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "What makes your bots better?",
+    "answer": "They're custom-built, not generic or copied.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "Can you explain things simply?",
+    "answer": "Always. I like to keep tech easy to understand.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "Why do you love AI?",
+    "answer": "Because it helps real people solve real problems.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "What is your background?",
+    "answer": "I've built software for years. Now I focus on AI.",
+    "category": "Personal Style"
+  },
+  {
+    "question": "Can your bots make mistakes?",
+    "answer": "Yes. AI is powerful but not perfect — it can sometimes guess wrong or misunderstand.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Is the AI always accurate?",
+    "answer": "It's very good, but not 100%. I recommend reviewing important outputs.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Can the AI give legal or medical advice?",
+    "answer": "No. My bots are for general help, not professional legal or medical use.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Can the AI harm my data?",
+    "answer": "No. I design it safely. It doesn't change or delete anything unless instructed.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Will the AI keep learning over time?",
+    "answer": "Only if we build in memory or fine-tuning. Otherwise, it stays fixed.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Can I limit what the bot is allowed to say?",
+    "answer": "Yes. I can add safety filters and custom rules.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Does the AI respect user privacy?",
+    "answer": "Yes. It only uses the data you give it during a session. Nothing is saved without consent.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Can your bots be hacked?",
+    "answer": "I follow security best practices to keep bots safe. But like all software, secure hosting is important.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Will your bots say offensive or biased things?",
+    "answer": "I use trusted models and filters to reduce risks, but AI isn't perfect — it can still make mistakes.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "Can you build bots with safe boundaries for kids or schools?",
+    "answer": "Yes. I can restrict language, topics, and features for educational or child-safe use.",
+    "category": "Bot Limitations, Safety & Reliability"
+  },
+  {
+    "question": "How do we start a project?",
+    "answer": "Contact me at aiagent@dr.com and tell me what you need — I'll take it from there.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Do we need a call before starting?",
+    "answer": "Not always, but I recommend it for complex projects.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can you help me define what I need?",
+    "answer": "Yes. I'll guide you through the planning phase.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can you help write requirements?",
+    "answer": "Yes, I can document the goals and scope clearly for you.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Will I get a proposal or offer?",
+    "answer": "Yes. I always send a quote and timeline before starting.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can you explain things without technical language?",
+    "answer": "Of course. I keep things clear and simple.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can you suggest features I didn't think of?",
+    "answer": "Definitely. I'll often improve on your original idea.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Will you help me test the solution?",
+    "answer": "Yes. I run tests and also show you how to test it yourself.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "What happens if something doesn't work?",
+    "answer": "I fix it fast — quality is a top priority.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can I change the project later?",
+    "answer": "Yes. I offer flexibility for updates or changes.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Do you give status updates?",
+    "answer": "Yes. I keep you updated throughout the process.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can you deliver the project in parts?",
+    "answer": "Yes. I can break it into steps or milestones.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Will I get documentation?",
+    "answer": "Yes. I can include a user guide or tech notes.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Do you give a warranty or support period?",
+    "answer": "Yes. Short-term support is always included.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can I cancel the project?",
+    "answer": "Yes, anytime. Payment depends on progress made.",
+    "category": "Project Planning & Expectations"
+  },
+  {
+    "question": "Can I upload my own data?",
+    "answer": "Yes. I can train the AI on your content, documents, or database.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can the bot learn over time?",
+    "answer": "Yes, if memory or feedback loops are added.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Do you build bots that remember users?",
+    "answer": "Yes. I can create persistent memory if needed.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can I update the AI myself?",
+    "answer": "Yes, I can make tools so you can manage prompts or content.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can I reset the bot's memory?",
+    "answer": "Yes. You'll have full control over resets and history.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can I have different personalities for the bot?",
+    "answer": "Yes. I can design modes: friendly, formal, expert, etc.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can I make the bot answer only from my data?",
+    "answer": "Yes. I can restrict its responses to your knowledge base only.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can the AI speak my brand's voice?",
+    "answer": "Yes. I'll customize tone, style, and vocabulary.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can I teach it slang or internal terms?",
+    "answer": "Yes. I can add domain-specific or company language.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can the bot recognize returning users?",
+    "answer": "Yes, with tracking or user IDs, it can personalize answers.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can you use vector databases like Pinecone?",
+    "answer": "Yes. I use Pinecone for advanced document search or memory.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can the bot ask questions back to the user?",
+    "answer": "Yes. It can guide conversations or ask follow-ups.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can it connect to a CMS or database?",
+    "answer": "Yes. I can integrate it with your systems or APIs.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can it summarize lots of content?",
+    "answer": "Yes. It can read and summarize large files or multiple pages.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can I limit what the AI sees?",
+    "answer": "Yes. I design strict input rules and privacy filters.",
+    "category": "AI Training, Customization & Memory"
+  },
+  {
+    "question": "Can you build a sales assistant bot?",
+    "answer": "Yes. It can answer leads, write emails, and follow up.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you make an HR bot?",
+    "answer": "Yes. It can handle FAQs, policy documents, and onboarding help.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you make a customer support bot?",
+    "answer": "Yes. It can reply to common issues or forward tickets.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you build an internal knowledge base bot?",
+    "answer": "Yes. It can search company data and answer employee questions.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you build a research assistant?",
+    "answer": "Yes. It can summarize articles, PDFs, or web content.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you make a chatbot for my store?",
+    "answer": "Yes. It can answer questions and guide customers to products.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you make an appointment booking bot?",
+    "answer": "Yes. I can integrate it with calendars or booking systems.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can the bot send daily summaries?",
+    "answer": "Yes. It can email or message daily updates.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you build a chatbot for social media?",
+    "answer": "Yes. I can integrate with Facebook, Instagram, or others.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you build an agent that reads contracts?",
+    "answer": "Yes. It can scan, summarize, or flag contract content.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you make an AI tutor bot?",
+    "answer": "Yes. It can teach or quiz users on a subject.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can you build a finance assistant bot?",
+    "answer": "Yes. It can help with reports, budgeting, or expenses.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can the bot work inside Microsoft Teams?",
+    "answer": "Yes. I can build bots for Teams, Slack, or Discord.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can the AI summarize YouTube videos?",
+    "answer": "Yes, with a transcript. It can summarize or give highlights.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can it support multiple users at once?",
+    "answer": "Yes. I can build bots that serve multiple users in parallel.",
+    "category": "Real Use Cases"
+  },
+  {
+    "question": "Can the AI make decisions for me?",
+    "answer": "It can recommend, but final decisions should be yours.",
+    "category": "Limitations, Ethics, and AI Boundaries"
+  },
+  {
+    "question": "Is your AI safe for kids?",
+    "answer": "Yes, if designed with limits. I can build family-friendly bots.",
+    "category": "Limitations, Ethics, and AI Boundaries"
+  },
+  {
+    "question": "Can the bot lie?",
+    "answer": "It shouldn't, but sometimes AI guesses — I add filters to avoid that.",
+    "category": "Limitations, Ethics, and AI Boundaries"
+  },
+  {
+    "question": "Can the AI predict the future?",
+    "answer": "No. It can analyze trends but not predict real outcomes.",
+    "category": "Limitations, Ethics, and AI Boundaries"
+  },
+  {
+    "question": "Can the AI be used for illegal tasks?",
+    "answer": "No. I strictly refuse any unethical or illegal project requests.",
+    "category": "Limitations, Ethics, and AI Boundaries"
+  },
+  {
+    "question": "Will you help me launch the bot?",
+    "answer": "Yes. I handle setup, launch, and support during go-live.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can you host the bot for me?",
+    "answer": "Yes. I can deploy it or guide you through hosting options.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can I host the AI on my own server?",
+    "answer": "Yes. I'll give you everything you need to run it yourself.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can it run on cloud platforms like AWS or Azure?",
+    "answer": "Yes. I support AWS, Azure, Google Cloud, and others.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can you provide a Docker container?",
+    "answer": "Yes. I can package the AI into a Docker image.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Do I need a paid OpenAI key?",
+    "answer": "Yes. For GPT-based bots, you'll need an OpenAI API key.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can you help me set up the API key?",
+    "answer": "Yes. I'll walk you through creating and securing it.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can I switch models later (e.g., GPT to Claude)?",
+    "answer": "Yes. I can update your agent to use a different model.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Will the bot still work after a year?",
+    "answer": "Yes, as long as it's hosted and the API key is active.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Will I get all the code?",
+    "answer": "Yes. You receive 100% of the code and documentation.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can I deploy the bot on multiple websites?",
+    "answer": "Yes. I'll show you how to reuse or embed it elsewhere.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can it be added to an internal company portal?",
+    "answer": "Yes. I can build it for internal or public access.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "What platforms can the bot run on?",
+    "answer": "Web, mobile, desktop, and chat apps like Slack or Teams.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can you migrate an existing bot into your system?",
+    "answer": "Yes. I can rebuild or improve your old bot if needed.",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Do you offer lifetime licenses?",
+    "answer": "Yes. Once delivered, the bot is yours with no ongoing fees (except for AI usage/API costs).",
+    "category": "Deployment, Handoff & Hosting"
+  },
+  {
+    "question": "Can the bot support multiple languages?",
+    "answer": "Yes. It can detect or switch between many languages.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can it speak different languages out loud?",
+    "answer": "Yes. I use speech tools that support multiple voices and languages.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can I manually translate its responses?",
+    "answer": "Yes. You can edit templates or set fixed replies.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can the bot auto-detect user language?",
+    "answer": "Yes. I can use language detection tools to adapt in real time.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can I limit the bot to just English?",
+    "answer": "Yes. You choose what languages it supports.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can I give it multiple response options in different languages?",
+    "answer": "Yes. I can build a language menu or auto-switch feature.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can it support right-to-left languages?",
+    "answer": "Yes. Arabic, Hebrew, and RTL formats are supported.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Is the bot accessible for screen readers?",
+    "answer": "Yes. I follow web accessibility guidelines if needed.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can the voice output be slowed down or sped up?",
+    "answer": "Yes. You can adjust voice speed settings.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can it speak in a specific accent?",
+    "answer": "Yes. I can choose voices with different accents or styles.",
+    "category": "Multilingual & Accessibility"
+  },
+  {
+    "question": "Can I test the bot before launch?",
+    "answer": "Yes. I'll provide a preview for feedback and testing.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can other team members test it too?",
+    "answer": "Yes. I can give shared links or accounts for access.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can you create a demo version of the bot?",
+    "answer": "Yes. I can build a lightweight demo for review or sales.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can I add the bot to a staging site?",
+    "answer": "Yes. I support testing environments before going live.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can I try different personalities before deciding?",
+    "answer": "Yes. I can demo multiple tones or roles for your bot.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can the bot log all interactions?",
+    "answer": "Yes. I can enable logs to analyze what users ask.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can it export chat history?",
+    "answer": "Yes. The bot can save or email transcripts on request.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can it be paused or turned off anytime?",
+    "answer": "Yes. You have full control to activate/deactivate it.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can I see bot performance analytics?",
+    "answer": "Yes. I can track usage, accuracy, and feedback.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Will you show me how to update the bot myself?",
+    "answer": "Yes. I offer training or editable tools for self-updates.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can you help me make training material for my team?",
+    "answer": "Yes. I can create guides or demos for staff onboarding.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can you support me if I get stuck later?",
+    "answer": "Yes. I offer support packages for ongoing help.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can the bot be multilingual during testing too?",
+    "answer": "Yes. All features can be tested before public use.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Do I need to install anything?",
+    "answer": "Usually no — it's browser-based or cloud-hosted.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Will you do a walkthrough after delivery?",
+    "answer": "Yes. I offer a handoff call or tutorial session.",
+    "category": "Testing, Demos & End-User Setup"
+  },
+  {
+    "question": "Can I license the bot to other users?",
+    "answer": "Yes, we can build in multi-user support or licensing features.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can the bot handle high traffic?",
+    "answer": "Yes. I can scale the solution for heavy usage.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can I clone the bot for different clients?",
+    "answer": "Yes. I can set it up for easy duplication and rebranding.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can the bot connect to payment systems?",
+    "answer": "Yes. It can be linked to Stripe, PayPal, or custom payment tools.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can I use the bot for lead generation?",
+    "answer": "Yes. It can collect leads, qualify them, and notify you instantly.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can you white-label the bot?",
+    "answer": "Yes. I can deliver it without any branding.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can the bot handle forms and user inputs?",
+    "answer": "Yes. It can collect and validate form data during a chat.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can the bot run inside a mobile app?",
+    "answer": "Yes. I can help embed it into iOS or Android apps.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "Can you sign a long-term service contract?",
+    "answer": "Yes. I'm open to recurring support or monthly arrangements.",
+    "category": "Final Considerations & Special Cases"
+  },
+  {
+    "question": "What makes your AI bots different?",
+    "answer": "They're fast, custom-built, human-friendly, and made by me — not copied from templates.",
+    "category": "Final Considerations & Special Cases"
+  }
+]
 
