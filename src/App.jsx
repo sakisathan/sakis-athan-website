@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Input } from '@/components/ui/input.jsx'
 import { Textarea } from '@/components/ui/textarea.jsx'
 import { Bot, Mail, Phone, MessageCircle, Send, X, Volume2, VolumeX } from 'lucide-react'
-import profileImage from './assets/sakis-profile.png'
+import profileVideo from './assets/smiling_video.mp4'
 
 import largeRobot from './assets/large-robot.gif'
 import './App.css'
@@ -189,10 +189,14 @@ function App() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-30 scale-110"></div>
                 <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/20">
-                  <img 
-                    src={profileImage} 
+                  <video 
+                    src={profileVideo} 
                     alt="Sakis Athan - AI Agent Engineer" 
                     className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                   />
                 </div>
               </div>
