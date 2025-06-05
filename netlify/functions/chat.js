@@ -53,30 +53,37 @@ exports.handler = async (event, context) => {
     ).join('\n\n');
 
     // Use GPT-3.5 to intelligently respond using the knowledge base
-    const systemPrompt = `You are Sakis Athan's AI assistant. Sakis builds custom AI agents and automation solutions.
+    const systemPrompt = `You are an AI assistant working for Sakis Athan. You are NOT Sakis - you are his helpful assistant.
 
-KNOWLEDGE BASE:
+IMPORTANT: Always speak ABOUT Sakis in third person, never pretend to BE Sakis.
+- Say "Sakis builds AI agents" NOT "I build AI agents"
+- Say "Sakis specializes in..." NOT "I specialize in..."
+- Say "Sakis can help you with..." NOT "I can help you with..."
+- Say "You can contact Sakis at..." NOT "You can contact me at..."
+
+KNOWLEDGE BASE ABOUT SAKIS:
 ${knowledgeContext}
 
 INSTRUCTIONS:
-1. You have access to comprehensive Q&A information about Sakis's services
-2. When a user asks a question, find the most relevant information from the knowledge base
-3. Provide helpful, accurate answers based on this information
-4. If the question relates to multiple Q&A pairs, combine the information intelligently
-5. If no relevant information exists in the knowledge base, provide a helpful general response about AI agents and automation
-6. Always be professional, friendly, and helpful
-7. Never mention "NO_MATCH_FOUND" or technical errors to users
-8. Remove any asterisks (*) or formatting characters from your responses
-9. Keep responses conversational and natural for voice synthesis
+1. You are Sakis Athan's professional AI assistant
+2. Use the knowledge base to provide accurate information ABOUT Sakis and his services
+3. Always refer to Sakis in third person - you are representing him, not being him
+4. When users ask about services, explain what Sakis offers
+5. If questions relate to multiple Q&A pairs, combine the information intelligently
+6. If no relevant information exists in the knowledge base, provide helpful general information about Sakis's AI services
+7. Always be professional, friendly, and helpful as his assistant
+8. Never mention "NO_MATCH_FOUND" or technical errors to users
+9. Remove any asterisks (*) or formatting characters from your responses
+10. Keep responses conversational and natural for voice synthesis
 
-ABOUT SAKIS:
+ABOUT SAKIS ATHAN:
 - Builds custom AI agents using GPT-3.5, GPT-4, Claude, and other AI models
 - Specializes in automation, chatbots, document processing, and business workflows
 - Uses Python, JavaScript, and Visual Basic
 - Offers consulting and custom development services
 - Contact: aiagent@dr.com
 
-Respond naturally and helpfully to the user's question.`;
+Remember: You are his assistant speaking ABOUT him, not pretending to BE him.`;
 
     try {
       const completion = await openai.chat.completions.create({
@@ -105,6 +112,20 @@ Respond naturally and helpfully to the user's question.`;
         .replace(/\s+/g, ' ') // Normalize whitespace
         .trim();
 
+      // Additional cleanup to ensure third person references
+      response = response
+        .replace(/\bI build\b/gi, 'Sakis builds')
+        .replace(/\bI specialize\b/gi, 'Sakis specializes')
+        .replace(/\bI offer\b/gi, 'Sakis offers')
+        .replace(/\bI can help\b/gi, 'Sakis can help')
+        .replace(/\bI create\b/gi, 'Sakis creates')
+        .replace(/\bI develop\b/gi, 'Sakis develops')
+        .replace(/\bI work\b/gi, 'Sakis works')
+        .replace(/\bI use\b/gi, 'Sakis uses')
+        .replace(/\bmy services\b/gi, 'Sakis\'s services')
+        .replace(/\bmy expertise\b/gi, 'Sakis\'s expertise')
+        .replace(/\bcontact me\b/gi, 'contact Sakis');
+
       console.log('Generated response:', response);
 
       return {
@@ -120,7 +141,7 @@ Respond naturally and helpfully to the user's question.`;
       console.error('OpenAI API error:', openaiError);
       
       // Fallback response without revealing technical details
-      const fallbackResponse = "I'm here to help you learn about AI agents and automation solutions. Sakis specializes in building custom AI assistants that can automate tasks, handle emails, process documents, and much more. For specific questions about your project, please contact Sakis directly at aiagent@dr.com.";
+      const fallbackResponse = "I'm Sakis Athan's AI assistant. Sakis specializes in building custom AI agents that can automate tasks, handle emails, process documents, and much more. For specific questions about your project, please contact Sakis directly at aiagent@dr.com.";
       
       return {
         statusCode: 200,
@@ -136,7 +157,7 @@ Respond naturally and helpfully to the user's question.`;
     console.error('Error processing chat request:', error);
     
     // User-friendly error response
-    const errorResponse = "I apologize for the technical difficulty. Please try asking your question again, or contact Sakis directly at aiagent@dr.com for immediate assistance.";
+    const errorResponse = "I apologize for the technical difficulty. I'm Sakis Athan's AI assistant. Please try asking your question again, or contact Sakis directly at aiagent@dr.com for immediate assistance.";
     
     return {
       statusCode: 200,
