@@ -13,7 +13,7 @@ function App() {
   const [chatMessages, setChatMessages] = useState([])
   const [chatInput, setChatInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [voiceEnabled, setVoiceEnabled] = useState(true) // New state for voice toggle
+  const [voiceEnabled, setVoiceEnabled] = useState(true)
 
   const handleChatSubmit = async (e) => {
     e.preventDefault()
@@ -25,7 +25,6 @@ function App() {
     setIsLoading(true)
 
     try {
-      // OpenAI API call will be implemented here
       const response = await fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: {
@@ -37,19 +36,14 @@ function App() {
       const data = await response.json()
       setChatMessages(prev => [...prev, { role: 'assistant', content: data.response }])
 
-      // Enhanced Text-to-speech with much better voice quality (only if voice is enabled)
+      // Text-to-speech with voice control
       if ('speechSynthesis' in window && voiceEnabled) {
-        // Cancel any ongoing speech first
         speechSynthesis.cancel()
 
-        // Wait for voices to load
         const speakWithBetterVoice = () => {
           const utterance = new SpeechSynthesisUtterance(data.response)
           const voices = speechSynthesis.getVoices()
 
-          console.log('Voice enabled, attempting speech. Available voices:', voices.length)
-
-          // Find the best quality voices - prioritize premium/neural voices
           const premiumVoices = voices.filter(voice =>
             voice.lang.startsWith('en') && (
               voice.name.includes('Premium') ||
@@ -63,7 +57,6 @@ function App() {
             )
           )
 
-          // Fallback to high-quality system voices
           const qualityVoices = voices.filter(voice =>
             voice.lang.startsWith('en') && (
               voice.name.includes('Google') ||
@@ -74,45 +67,35 @@ function App() {
 
           let selectedVoice = null
 
-          // Try premium voices first
           if (premiumVoices.length > 0) {
             selectedVoice = premiumVoices[0]
           } else if (qualityVoices.length > 0) {
-            // Prefer female voices for better user experience
             selectedVoice = qualityVoices.find(v =>
               v.name.toLowerCase().includes('female') ||
               v.name.toLowerCase().includes('zira') ||
               v.name.toLowerCase().includes('aria')
             ) || qualityVoices[0]
           } else if (voices.length > 0) {
-            // Use any available English voice as fallback
             selectedVoice = voices.find(v => v.lang.startsWith('en')) || voices[0]
           }
 
           if (selectedVoice) {
             utterance.voice = selectedVoice
-            utterance.rate = 0.85  // Slower for better clarity
-            utterance.pitch = 1.1  // Slightly higher pitch for friendliness
-            utterance.volume = 0.7 // Comfortable volume
-
-            console.log('Using voice:', selectedVoice.name)
+            utterance.rate = 0.85
+            utterance.pitch = 1.1
+            utterance.volume = 0.7
             speechSynthesis.speak(utterance)
           } else {
-            console.log('No suitable voice found - using default voice')
-            // Use default voice if no specific voice is found
             speechSynthesis.speak(utterance)
           }
         }
 
-        // Ensure voices are loaded
         if (speechSynthesis.getVoices().length === 0) {
           speechSynthesis.addEventListener('voiceschanged', speakWithBetterVoice, { once: true })
         } else {
           speakWithBetterVoice()
         }
       } else {
-        console.log('Voice disabled or speechSynthesis not available')
-        // Cancel any ongoing speech when voice is disabled
         speechSynthesis.cancel()
       }
 
@@ -135,7 +118,6 @@ function App() {
     const message = formData.get('message')
 
     try {
-      // Google Sheets integration
       const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyM1QqUKLzNtK7k-XSRafKC7lmsYSyGDKhL2GoM8zJC6Ma04B6fg9HjCKE5uGl5TcX_/exec'
       
       const response = await fetch(googleSheetsUrl, {
@@ -152,10 +134,8 @@ function App() {
         }),
       })
 
-      // Since we're using no-cors mode, we can't read the response
-      // But we can assume success if no error is thrown
       alert(`Thank you ${name}! Your message has been sent successfully. I'll get back to you at ${email} soon.`)
-      e.target.reset() // Clear the form
+      e.target.reset()
 
     } catch (error) {
       console.error('Contact form error:', error)
@@ -188,7 +168,7 @@ function App() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-30 scale-110"></div>
-                <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/20">
+                <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/20 profile-container">
                   <video
                     src={profileVideo}
                     autoPlay
@@ -196,7 +176,6 @@ function App() {
                     muted
                     playsInline
                     className="w-full h-full object-cover"
-                    style={{ borderRadius: '50%' }}
                   />
                 </div>
               </div>
@@ -522,7 +501,7 @@ function App() {
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] p-3 rounded-2xl ${
+                  className={`max-w-[80%] p-3 rounded-2xl chat-message ${
                     msg.role === 'user'
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-900'
