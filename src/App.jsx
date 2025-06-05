@@ -457,131 +457,73 @@ function App() {
         </div>
       </footer>
 
-      {/* Floating Chat Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Button
-          onClick={() => setChatOpen(!chatOpen)}
-          size="lg"
-          className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-16 h-16 shadow-2xl hover:shadow-3xl transition-all duration-300 group"
-        >
-          {chatOpen ? (
-            <X className="w-8 h-8 group-hover:scale-110 transition-transform" />
-          ) : (
-            <MessageCircle className="w-8 h-8 group-hover:scale-110 transition-transform" />
-          )}
-        </Button>
-      </div>
-
-      {/* Chat Interface */}
-      {chatOpen && (
-        <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden">
-          {/* Chat Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <Bot className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-bold">AI Assistant</h3>
-                <p className="text-sm text-blue-100">Ask me about AI automation</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Button
-                onClick={() => setVoiceEnabled(!voiceEnabled)}
-                size="sm"
-                variant="ghost"
-                className="text-white hover:bg-white/20 p-2"
-                title={voiceEnabled ? "Disable voice" : "Enable voice"}
-              >
-                {voiceEnabled ? (
-                  <Volume2 className="w-4 h-4" />
-                ) : (
-                  <VolumeX className="w-4 h-4" />
-                )}
-              </Button>
-              <Button
-                onClick={() => setChatOpen(false)}
-                size="sm"
-                variant="ghost"
-                className="text-white hover:bg-white/20 p-2"
-              >
-                <X className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {chatMessages.length === 0 && (
-              <div className="text-center text-gray-500 py-8">
-                <Bot className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                <p className="text-sm">
-                  Hi! I'm Sakis's AI assistant. Ask me about AI automation services, pricing, or any questions you have!
-                </p>
-              </div>
-            )}
-            
-            {chatMessages.map((msg, index) => (
-              <div
-                key={index}
-                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[80%] p-3 rounded-2xl chat-message ${
-                    msg.role === 'user'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-900'
-                  }`}
+      {/* AI Assistant Robot */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <div className="relative">
+          <Button
+            onClick={() => setChatOpen(!chatOpen)}
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg"
+          >
+            <MessageCircle className="w-6 h-6" />
+          </Button>
+          
+          {chatOpen && (
+            <div className="absolute bottom-16 right-0 w-80 h-96 bg-white rounded-lg shadow-xl border">
+              <div className="bg-blue-600 text-white p-3 rounded-t-lg flex justify-between items-center">
+                <span className="font-medium">AI Assistant</span>
+                <Button
+                  onClick={() => setChatOpen(false)}
+                  variant="ghost"
+                  size="sm"
+                  className="text-white hover:bg-blue-700 p-1"
                 >
-                  <p className="text-sm">{msg.content}</p>
-                </div>
+                  <X className="w-4 h-4" />
+                </Button>
               </div>
-            ))}
-            
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-gray-100 p-3 rounded-2xl">
-                  <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              
+              <div className="flex flex-col flex-1 min-h-0">
+                <div className="flex-1 p-4 overflow-y-auto space-y-4">
+                  {chatMessages.length === 0 && (
+                    <div className="text-gray-500 text-sm">
+                      Hi! I'm Sakis's AI assistant. Ask me about his services, pricing, or anything else!
+                    </div>
+                  )}
+                  {chatMessages.map((message, index) => (
+                    <div
+                      key={index}
+                      className={`p-3 rounded-lg text-sm ${
+                        message.role === 'user'
+                          ? 'bg-blue-600 text-white ml-8'
+                          : 'bg-gray-100 text-gray-800 mr-8'
+                      }`}
+                      dangerouslySetInnerHTML={{ __html: message.content }}
+                    />
+                  ))}
+                  {isLoading && (
+                    <div className="bg-gray-100 text-gray-800 mr-8 p-3 rounded-lg text-sm">
+                      Thinking...
+                    </div>
+                  )}
+                </div>
+                
+                <form onSubmit={handleChatSubmit} className="p-4 border-t flex-shrink-0">
+                  <div className="flex space-x-2">
+                    <Input
+                      value={chatInput}
+                      onChange={(e) => setChatInput(e.target.value)}
+                      placeholder="Ask me anything..."
+                      className="flex-1"
+                      disabled={isLoading}
+                    />
+                    <Button type="submit" size="sm" disabled={isLoading}>
+                      <MessageCircle className="w-4 h-4" />
+                    </Button>
                   </div>
-                </div>
+                </form>
               </div>
-            )}
-          </div>
-
-          {/* Chat Input */}
-          <div className="p-4 border-t border-gray-200">
-            <form onSubmit={handleChatSubmit} className="flex space-x-2">
-              <Input
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                placeholder="Ask about AI automation..."
-                className="flex-1"
-                disabled={isLoading}
-              />
-              <Button
-                type="submit"
-                size="sm"
-                disabled={isLoading || !chatInput.trim()}
-                className="bg-blue-600 hover:bg-blue-700"
-              >
-                <Send className="w-4 h-4" />
-              </Button>
-            </form>
-          </div>
+            </div>
+          )}
         </div>
-      )}
-
-      {/* Large Robot Animation */}
-      <div className="fixed bottom-0 left-0 pointer-events-none z-10">
-        <img
-          src={largeRobot}
-          alt="AI Robot"
-          className="w-32 h-32 opacity-20"
-        />
       </div>
     </div>
   )
