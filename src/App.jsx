@@ -27,7 +27,7 @@ function App() {
 
     try {
       // OpenAI API call will be implemented here
-      const response = await fetch('https://3001-irufp8x2q57bpem5rfd6w-8e2afb88.manusvm.computer/api/chat', {
+      const response = await fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
